@@ -75,7 +75,7 @@ function App() {
 
   const playGames = () => {
     setGameState('playing')
-    // togglerTimer()
+    togglerTimer()
   }
 
   const randomInsider = (player) => {
@@ -131,14 +131,14 @@ function App() {
     setCount(count + 1)
   }
 
-  useEffect(() => {
-    // setGameState('playing')
+  // useEffect(() => {
+  //   // setGameState('playing')
 
-    if (count === parseFloat(player)) {
-      setGameState('playing')
-    }
-    console.log(count);
-  }, [count]);
+  //   if (count === parseFloat(player)) {
+  //     setGameState('playing')
+  //   }
+  //   console.log(count);
+  // }, [count]);
 
   const showCard = () => {
     setGameState('finished')
@@ -289,7 +289,7 @@ function App() {
 
             </Row>
 
-            {/* <Button type="primary" onClick={playGames} style={{ marginTop: "50px" }}>Play</Button> */}
+            <Button type="primary" onClick={playGames} style={{ marginTop: "50px" }}>Play</Button>
           </div>
         )}
 
@@ -305,11 +305,11 @@ function App() {
               </div>
             )}
 
-              <Button type="primary" onClick={togglerTimer} style={{ marginTop: "50px" }}>
+              {/* <Button type="primary" onClick={togglerTimer} style={{ marginTop: "50px" }}>
                 Start time
-              </Button> 
+              </Button>  */}
 
-              <Button type="primary" onClick={showCard} style={{ marginLeft: "50px",marginTop: "50px" }}>
+              <Button type="primary" onClick={showCard} style={{ marginTop: "50px" }}>
                 Show Card
               </Button>
           </div>
