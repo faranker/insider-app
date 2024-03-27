@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import { useState, useEffect } from 'react'
 import { Button, InputNumber, Input, Card, Alert, Space, Col, Divider, Row, notification } from 'antd';
 import './App.css';
+import bg from "./card.png"
+import bg_insider from "./insider.jpg"
 
 function App() {
   const { Meta } = Card;
@@ -28,7 +30,7 @@ function App() {
     let timerId;
 
     if (runTimer) {
-      setCountDown(2);
+      setCountDown(60*5);
       timerId = setInterval(() => {
         setCountDown((countDown) => countDown - 1);
       }, 1000);
@@ -208,13 +210,14 @@ function App() {
                         style={{
                           width: "100%",
                           height: "200px",
-                          backgroundImage: `url(/img/card.png)`,
-                          backgroundPosition: "center",
-                          backgroundSize: "cover"
+                          // backgroundImage: `url(/card.png)`,
+                          // backgroundPosition: "center",
+                          // backgroundSize: "cover"
                         }}
 
                       // cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
                       >
+                        <img alt="example" src={bg} style={{width: "100%", borderRadius: "5px"}}/>
 
                         {/* <Meta title={item.word} /> */}
                         {/* <span className='position-center'>
@@ -256,7 +259,7 @@ function App() {
                             style={{
                               width: "100%",
                               height: "200px",
-                              backgroundImage: `url(/img/insider.jpg)`,
+                              backgroundImage: `url(../img/insider.jpg)`,
                               backgroundPosition: "center",
                               backgroundSize: "cover"
                             }}
@@ -265,6 +268,7 @@ function App() {
                           // cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
                           >
                             {/* <Meta title={item.word} /> */}
+                            <img alt="example" src={bg_insider} style={{width: "100%", height: "200px", borderRadius: "5px"}}/>
                             <span className='position-center'>
                               <p style={{ fontSize: "14px", fontWeight: 600, color: "#ffffff", marginBottom: "20px" }}>{item.word}</p>
                               <Input placeholder='Name' size="small" onChange={(e) => setNameOnCard(e.target.value)} style={{ marginBottom: "20px", textAlign: "center" }} />
@@ -333,13 +337,13 @@ function App() {
                         style={{
                           width: "100%",
                           height: "200px",
-                          backgroundImage: `url(/img/card.png)`,
+                          backgroundImage: `url(../img/card.png)`,
                           backgroundPosition: "center",
                           backgroundSize: "cover",
                         }}
-                      // cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
                       >
                         {/* <Meta title={item.word} /> */}
+                        <img alt="example" src={bg} style={{width: "100%", height: "200px", borderRadius: "5px"}}/>
                         <span className='position-center'>
                           {/* <p style={{fontSize: "18px", fontWeight: 600, color: "#ffffff"}}>{item.id}</p> */}
                           <p style={{ fontSize: "20px", fontWeight: 600, color: "black" }}>{item.name_on_card}</p>
@@ -358,9 +362,6 @@ function App() {
                               width: "100%",
                               height: "200px",
                             }}
-
-
-                          // cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
                           >
                             {/* <Meta title={item.word} /> */}
                             <span className='position-center'>
@@ -377,14 +378,15 @@ function App() {
                             style={{
                               width: "100%",
                               height: "200px",
-                              backgroundImage: `url(/img/insider.jpg)`,
-                              backgroundPosition: "center",
-                              backgroundSize: "cover"
+                              // backgroundImage: `url(../img/insider.jpg)`,
+                              // backgroundPosition: "center",
+                              // backgroundSize: "cover"
                             }}
 
 
                           // cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
                           >
+                            <img alt="example" src={bg_insider} style={{width: "100%", height: "200px", borderRadius: "5px"}}/>
                             {/* <Meta title={item.word} /> */}
                             <span className='position-center'>
                               <p style={{ fontSize: "16px", fontWeight: 600, color: "#ffffff" }}>{item.word}</p>
@@ -408,7 +410,7 @@ function App() {
         )}
       </div>
 
-
+      {/* <img alt="example" src={bg} /> */}
 
     </div>
   );
