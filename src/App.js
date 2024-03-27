@@ -17,6 +17,7 @@ function App() {
   const [gameState, setGameState] = useState('waiting'); // Can be 'waiting', 'playing', 'finished'
 
   const [status, setStatus] = useState(true); 
+  const [flipingCard, setFlipingCard] = useState(false); 
 
   const [alert, setAlert] = useState(false);
   const [timeOver, setTimeOver] = useState(false);
@@ -121,6 +122,12 @@ function App() {
   }
 
   const flipCard = (e, item) => {
+    // console.log(item);
+    var element = document.getElementById("card-" + item.id);
+    element.classList.toggle("animation-flip");
+  }
+
+  const flipCardFinish = (e, item) => {
     // console.log(item);
     var element = document.getElementById("card-" + item.id);
     element.classList.toggle("animation-flip");
@@ -236,6 +243,7 @@ function App() {
                       {item.word === 'You have no words, Find the insider.' ? (
                         <>
                           <Card
+                            onClick={(e) => flipCard(e, item)}
                             className='flip-card-back'
                             hoverable
                             style={{
@@ -327,7 +335,7 @@ function App() {
                   <div className='flip-card'>
                     <div className='flip-card-inner' id={'card-' + item.id}>
                       <Card
-                        onClick={(e) => flipCard(e, item)}
+                        onClick={(e) => flipCardFinish(e, item)}
                         className='flip-card-front'
                         hoverable
                         style={{
