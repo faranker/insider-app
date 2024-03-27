@@ -289,7 +289,7 @@ function App() {
 
             </Row>
 
-            <Button type="primary" onClick={playGames} style={{ marginTop: "50px" }}>Play</Button>
+            {/* <Button type="primary" onClick={playGames} style={{ marginTop: "50px" }}>Play</Button> */}
           </div>
         )}
 
