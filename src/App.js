@@ -305,21 +305,13 @@ function App() {
               </div>
             )}
 
-
-            {timeOver ? (
-              <Button type="primary" onClick={showCard} style={{ marginTop: "50px" }}>
-                Show Card
-              </Button>
-            ) : (
-
               <Button type="primary" onClick={togglerTimer} style={{ marginTop: "50px" }}>
                 Start time
+              </Button> 
+
+              <Button type="primary" onClick={showCard} style={{ marginLeft: "50px",marginTop: "50px" }}>
+                Show Card
               </Button>
-            )}
-
-
-
-
           </div>
         )}
 
