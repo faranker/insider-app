@@ -16,6 +16,8 @@ function App() {
   const [charactor, setCharactor] = useState([]);
   const [gameState, setGameState] = useState('waiting'); // Can be 'waiting', 'playing', 'finished'
 
+  const [status, setStatus] = useState(true); 
+
   const [alert, setAlert] = useState(false);
   const [timeOver, setTimeOver] = useState(false);
   const [countDown, setCountDown] = useState(0);
@@ -99,7 +101,7 @@ function App() {
           id: index + 1,
           char: 'Insider',
           color: '#' + randomColor,
-          word: 'You are insider!! The word is : ' + '``' + secretWord + '``',
+          word: secretWord,
           name_on_card: ''
         })
       } else {
@@ -131,14 +133,16 @@ function App() {
     setCount(count + 1)
   }
 
-  // useEffect(() => {
-  //   // setGameState('playing')
+  useEffect(() => {
+    // setGameState('playing')
 
-  //   if (count === parseFloat(player)) {
-  //     setGameState('playing')
-  //   }
-  //   console.log(count);
-  // }, [count]);
+    if (count === parseFloat(player)) {
+
+      setStatus(false)
+      console.log(count);
+    }
+    console.log(count);
+  }, [count]);
 
   const showCard = () => {
     setGameState('finished')
@@ -244,7 +248,7 @@ function App() {
                           >
                             {/* <Meta title={item.word} /> */}
                             <span className='position-center'>
-                              <p style={{ fontSize: "14px", fontWeight: 600, color: "black", marginBottom: "20px" }}>{item.word}</p>
+                              <p style={{ fontSize: "14px", fontWeight: 600, color: "black", marginBottom: "20px", width:"120px" }}>{item.word}</p>
                               <Input placeholder='Name' size="small" onChange={(e) => setNameOnCard(e.target.value)} style={{ marginBottom: "20px", textAlign: "center" }} />
                               <Button type="primary" onClick={(e) => closeCard(e, item, nameOnCard)}>OK</Button>
                             </span>
@@ -268,9 +272,9 @@ function App() {
                           // cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
                           >
                             {/* <Meta title={item.word} /> */}
-                            <img alt="example" src={bg_insider} style={{width: "100%", height: "200px", borderRadius: "5px"}}/>
+                            {/* <img alt="example" src={bg_insider} style={{width: "100%", height: "200px", borderRadius: "5px"}}/> */}
                             <span className='position-center'>
-                              <p style={{ fontSize: "14px", fontWeight: 600, color: "#ffffff", marginBottom: "20px" }}>{item.word}</p>
+                              <p style={{ fontSize: "16px", fontWeight: 600, color: "#000000", marginBottom: "20px", width:"120px" }}>You are insider!! The word is : <p style={{backgroundColor: "rgba(255,0,0, 0.8)", padding: "2px", color: "#ffffff"}}>{item.word}</p></p>
                               <Input placeholder='Name' size="small" onChange={(e) => setNameOnCard(e.target.value)} style={{ marginBottom: "20px", textAlign: "center" }} />
                               <Button type="primary" onClick={(e) => closeCard(e, item, nameOnCard)}>OK</Button>
                             </span>
@@ -289,7 +293,7 @@ function App() {
 
             </Row>
 
-            <Button type="primary" onClick={playGames} style={{ marginTop: "50px" }}>Play</Button>
+            <Button type="primary" onClick={playGames} disabled={status} style={{ marginTop: "50px" }}>Play</Button>
           </div>
         )}
 
@@ -338,7 +342,7 @@ function App() {
                         <img alt="example" src={bg} style={{width: "100%", height: "200px", borderRadius: "5px"}}/>
                         <span className='position-center'>
                           {/* <p style={{fontSize: "18px", fontWeight: 600, color: "#ffffff"}}>{item.id}</p> */}
-                          <p style={{ fontSize: "20px", fontWeight: 600, color: "black" }}>{item.name_on_card}</p>
+                          <p style={{ fontSize: "20px", fontWeight: 600, color: "black", width:"120px" }}><p style={{backgroundColor: "rgba(255,255,255, 0.8)", padding: "2px", color: "#000"}}>{item.name_on_card}</p></p>
                         </span>
 
 
@@ -357,7 +361,7 @@ function App() {
                           >
                             {/* <Meta title={item.word} /> */}
                             <span className='position-center'>
-                              <p style={{ fontSize: "16px", fontWeight: 600, color: "black" }}>{item.word}</p>
+                              <p style={{ fontSize: "16px", fontWeight: 600, color: "black", width:"120px" }}>{item.word}</p>
                             </span>
 
                           </Card>
@@ -378,10 +382,11 @@ function App() {
 
                           // cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
                           >
-                            <img alt="example" src={bg_insider} style={{width: "100%", height: "200px", borderRadius: "5px"}}/>
+                            {/* <img alt="example" src={bg_insider} style={{width: "100%", height: "200px", borderRadius: "5px"}}/> */}
                             {/* <Meta title={item.word} /> */}
                             <span className='position-center'>
-                              <p style={{ fontSize: "16px", fontWeight: 600, color: "#ffffff" }}>{item.word}</p>
+                            <p style={{ fontSize: "16px", fontWeight: 600, color: "#000000", marginBottom: "20px", width:"120px" }}>You are insider!! The word is : <p style={{backgroundColor: "rgba(255,0,0, 0.8)", padding: "2px", color: "#ffffff"}}>{item.word}</p></p>
+
                             </span>
 
                           </Card>
