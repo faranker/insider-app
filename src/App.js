@@ -298,12 +298,15 @@ function App() {
         onChange={(e) => setPlayer(e.target.value)}
         placeholder="กรอกจำนวนผู้เล่น ไม่รวม Host"
       /> */}
-            <Input
+        <div>
+        <Input
               placeholder="1-10"
               size="large"
               onChange={onChangePlayer}
-              style={{ marginBottom: "20px", textAlign: "center" }}
+              style={{ marginBottom: "20px", textAlign: "center" , width: "200px" }}
             />
+        </div>
+            
           
             <Button type="primary" onClick={submitPlayer}>
               OK
@@ -316,12 +319,15 @@ function App() {
             <p style={{ textAlign: "center", marginBottom: "20px" }}>
               Put the words, don't let anyone see them.
             </p>
+            <div>
             <Input
               placeholder="Secret Word"
               size="large"
               onChange={(e) => setSecretWord(e.target.value)}
-              style={{ marginBottom: "20px", textAlign: "center" }}
+              style={{ marginBottom: "20px", textAlign: "center", width: "200px" }}
             />
+            </div>
+            
             <Button type="primary" onClick={submitWord}>
               OK
             </Button>
