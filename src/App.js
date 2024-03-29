@@ -239,10 +239,10 @@ function App() {
   };
   return (
     <div
-      style={{ height: "140vh", position: "relative", textAlign: "center" }}
+      style={{ minHeight: "100vh", position: "relative", textAlign: "center" }}
       className="App-header"
     >
-      {/* <img
+      <img
         alt="example"
         src={logo_insider}
         style={{
@@ -252,7 +252,7 @@ function App() {
           // height: "200px",
           // borderRadius: "5px",
         }}
-      /> */}
+      />
 {/* 
       <Modal title="Create name" open={modalName} onCancel={handleCancel} onOk={submitName}>
         {renderInput(player)}
@@ -287,7 +287,7 @@ function App() {
         }}
       >
         {gameState === "waiting" && (
-          <div style={{paddingTop: "200px",}}>
+          <div>
             <p style={{ textAlign: "center", marginBottom: "20px" }}>
               Enter 2-10 players, not counting yourself (ไม่รวม Host)
               {/* Enter 2-10 players */}
@@ -315,7 +315,7 @@ function App() {
         )}
 
         {gameState === "word" && (
-          <div style={{paddingTop: "200px",}}>
+          <div>
             <p style={{ textAlign: "center", marginBottom: "20px" }}>
               Put the words, don't let anyone see them.
             </p>
@@ -340,16 +340,16 @@ function App() {
         {gameState === "charactor" && (
           <div 
           style={{
-            width: 600,
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
+            // width: 600,
+            // position: "absolute",
+            // top: "50%",
+            // left: "50%",
+            // transform: "translate(-50%, -50%)",
             textAlign: "center",
           }}>
-            <Row gutter={[16, 24]}>
+            <Row gutter={[16, 24]} style={{justifyContent: "center"}}>
               {charactor.map((item) => (
-                <Col className="gutter-row" span={6} key={item.id}>
+                <Col className="gutter-row" xs={{span: 12}} sm={{span: 9}} md={{span: 5}} lg={{span: 4}} xl={{span: 3}} key={item.id}>
                   <div className="flip-card">
                     <div className="flip-card-inner" id={"card-" + item.id}>
                       {!item.choose ? (
@@ -357,29 +357,31 @@ function App() {
                         <Card
                           onClick={(e) => flipCard(e, item)}
                           className="flip-card-front"
-                          hoverable
+                          // hoverable
                           style={{
                             width: "100%",
                             height: "200px",
+                            cursor: 'pointer',
                           }}
                         >
-                          <img
+                          {/* <img
                             alt="example"
                             src={bg}
                             style={{ width: "100%", borderRadius: "5px" }}
-                          />
+                          /> */}
                         </Card>
                       ) : (
                         // card choosed
                         <Card
                           className="flip-card-front"
-                          hoverable
+                          // hoverable
                           style={{
                             width: "100%",
                             height: "200px",
+                            cursor: 'pointer'
                           }}
                         >
-                          <img
+                          {/* <img
                             alt="example"
                             src={bg}
                             style={{
@@ -387,7 +389,7 @@ function App() {
                               borderRadius: "5px",
                               filter: "blur(3px)",
                             }}
-                          />
+                          /> */}
 
                           <span className="position-center">
                             {/* <p style={{fontSize: "18px", fontWeight: 600, color: "#ffffff"}}>{item.id}</p> */}
@@ -417,11 +419,12 @@ function App() {
                         <>
                           <Card
                             className="flip-card-back"
-                            hoverable
+                            // hoverable
                             style={{
                               width: "100%",
                               height: "200px",
-                              backgroundColor: "#000"
+                              backgroundColor: "#000",
+                              cursor: 'pointer'
                             }}
                             // cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
                           >
@@ -478,11 +481,12 @@ function App() {
                         <>
                           <Card
                             className="flip-card-back"
-                            hoverable
+                            // hoverable
                             style={{
                               width: "100%",
                               height: "200px",
-                              backgroundColor: "#000"
+                              backgroundColor: "#000",
+                              cursor: 'pointer'
                             }}
 
                             // cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
@@ -654,25 +658,26 @@ function App() {
             transform: "translate(-50%, -50%)",
             textAlign: "center",
           }}>
-            <Row gutter={[16, 24]}>
+            <Row gutter={[16, 24]} style={{justifyContent: "center"}}>
               {charactor.map((item) => (
-                <Col className="gutter-row" span={6} key={item.id}>
+                <Col className="gutter-row" xs={{span: 12}} sm={{span: 9}} md={{span: 5}} lg={{span: 4}} xl={{span: 3}} key={item.id}>
                   <div className="flip-card">
                     <div className="flip-card-inner" id={"card-" + item.id}>
                       <Card
                         onClick={(e) => flipCardFinish(e, item)}
                         className="flip-card-front"
-                        hoverable
+                        // hoverable
                         style={{
                           width: "100%",
                           height: "200px",
-                          backgroundImage: `url(../img/card.png)`,
-                          backgroundPosition: "center",
-                          backgroundSize: "cover",
+                          // backgroundImage: `url(../img/card.png)`,
+                          // backgroundPosition: "center",
+                          // backgroundSize: "cover",
+                          cursor: 'pointer'
                         }}
                       >
                         {/* <Meta title={item.word} /> */}
-                        <img
+                        {/* <img
                           alt="example"
                           src={bg}
                           style={{
@@ -680,7 +685,7 @@ function App() {
                             height: "200px",
                             borderRadius: "5px",
                           }}
-                        />
+                        /> */}
                         <span className="position-center">
                           {/* <p style={{fontSize: "18px", fontWeight: 600, color: "#ffffff"}}>{item.id}</p> */}
                           <p
@@ -710,11 +715,12 @@ function App() {
                         <>
                           <Card
                             className="flip-card-back"
-                            hoverable
+                            // hoverable
                             style={{
                               width: "100%",
                               height: "200px",
-                              backgroundColor: "#000"
+                              backgroundColor: "#000",
+                              cursor: 'pointer'
                             }}
                             // cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
                           >
@@ -753,11 +759,12 @@ function App() {
                         <>
                           <Card
                             className="flip-card-back"
-                            hoverable
+                            // hoverable
                             style={{
                               width: "100%",
                               height: "200px",
-                              backgroundColor: "#000"
+                              backgroundColor: "#000",
+                              cursor: 'pointer'
                             }}
 
                             // cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}

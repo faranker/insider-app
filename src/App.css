@@ -1,3 +1,12 @@
+:root {
+  --darkBg: #ffcc33;
+  --lightBg: #fff3ce;
+  --darkRed: #e22929;
+  --lightRed: #ffd0d0;
+  --darkBlack: #000;
+  --lightBlack: #777;
+}
+
 .App {
   text-align: center;
 }
@@ -22,8 +31,8 @@
   justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
-  padding-left: 5em;
-  padding-right: 5em;
+  padding-left: 3em;
+  padding-right: 3em;
 }
 
 .ant-card-body {
@@ -41,6 +50,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.ant-card-bordered {
+  border: 0px;
 }
 
 .flip-card {
@@ -65,7 +78,8 @@
 }
 
 .flip-card-front, .flip-card-back {
-  border: none !important;
+  filter: drop-shadow(0 0 5px silver);
+  /* border: none !important; */
   position: absolute;
   width: 100%;
   height: 100%;
@@ -74,6 +88,9 @@
 }
 
 .flip-card-front {
+  border: 6px solid #fff;
+  background: conic-gradient(var(--darkRed) 25%, var(--lightRed) 25%, var(--lightRed) 50%, var(--darkRed) 50%, var(--darkRed) 75%, var(--lightRed) 75%);
+  background-size: 20px 20px;
   /* background-color: #bbb;
   color: black; */
 }
